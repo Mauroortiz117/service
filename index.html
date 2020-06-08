@@ -131,25 +131,13 @@
 
 
 
-									<form method="post" action="enviar2.php">
-										<div class="fields">
-											<div class="field half">
-												<label for="nombre">Nombre</label>
-												<input type="text" name="nombre" id="nombre" />
-											</div>
-											<div class="field half">
-												<label for="email">Email</label>
-												<input type="email" name="mail" id="email" />
-											</div>
-											<div class="field">
-												<label for="mensaje">Mensaje</label>
-												<textarea type="text" name="mensaje" id="mensaje" rows="5"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><button type="submit" class="button submit">Enviar</button></li>
-										</ul>
-									</form>
+									<form id="myForm" class="contact-form text-right">
+							<input type="text" name="fname" placeholder="Nombre" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre'" class="common-input mt-10" required>
+							<input type="email" name="email" placeholder="Email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" class="common-input mt-10" required>
+							<textarea class="common-textarea mt-10" name="Mensaje" placeholder="Mensaje" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mensaje'" required></textarea>
+							<button class="primary-btn white-bg d-inline-flex align-items-center mt-10 ml-auto"><span class="mr-10">Enviar</span><span class="lnr lnr-arrow-right"></span></button> <br>
+							<div class="alert-msg"></div>
+						</form>
 
 
 
