@@ -1,22 +1,29 @@
 <?php
-$nombre = $_POST['nombre'];
-$email = $_POST['email'];
-$empresa = $_POST['mensaje'];
+    $to = 'demo@spondonit.com';
+    $firstname = $_POST["fname"];
+    $email= $_POST["email"];
+    $text= $_POST["message"];
+    
 
-$header = 'From: ' . $email . " \r\n";
-$header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
-$header .= "Mime-Version: 1.0 \r\n";
-$header .= "Content-Type: text/plain";
 
-$mensaje = "Este mensaje fue enviado por " . $nombre . ",\r\n";
-$mensaje .= "Su e-mail es: " . $email . " \r\n";
-$mensaje .= "Mensaje: " . $_POST['mensaje'] . " \r\n";
-$mensaje .= "Enviado el " . date('d/m/Y', time());
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= "From: " . $email . "\r\n"; // Sender's E-mail
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-$para = 'mauro.ortiz@icloud.com';
-$asunto = 'Mensaje de mi sitio web';
+    $message ='<table style="width:100%">
+        <tr>
+            <td>'.$firstname.'  '.$laststname.'</td>
+        </tr>
+        <tr><td>Email: '.$email.'</td></tr>
+        <tr><td>Email: '.$text.'</td></tr>
+        
+    </table>';
 
-mail($para, $asunto, utf8_decode($mensaje), $header);
+    if (@mail($to, $email, $message, $headers))
+    {
+        echo 'The message has been sent.';
+    }else{
+        echo 'failed';
+    }
 
-header("Location:index.html");
 ?>
